@@ -27,9 +27,11 @@ phases:
     displayName: Package Artifacts
     inputs:
       rootFolderOrFile: dist
+      includeRootFolder: false
+      archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
   - task: PublishBuildArtifacts@1
     displayName: Publish Artifacts
     inputs:
-      pathToPublish: $(System.DefaultWorkingDirectory)/dist
+      pathToPublish: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
       artifactName: drop
       artifactType: "Visual Studio Team Services/TFS"
