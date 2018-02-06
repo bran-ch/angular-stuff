@@ -30,6 +30,6 @@ phases:
   - task: PublishBuildArtifacts@1
     displayName: Publish Artifacts
     inputs:
-      rootFolderOrFile: $(System.DefaultWorkingDirectory)/dist
+      pathToPublish: $(System.DefaultWorkingDirectory)/dist
       artifactName: drop
       artifactType: "Visual Studio Team Services/TFS"
