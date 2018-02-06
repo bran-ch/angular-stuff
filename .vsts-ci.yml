@@ -16,27 +16,29 @@ phases:
   dependsOn: PreBuild
   steps:
   - task: Npm@1
+    displayName: Npm Install Angular Cli
+    inputs:
+      command: custom
+      customCommand: "install -g angular/cli"
+  - task: Npm@1
     displayName: Npm Install Production
     inputs:
       command: custom
-      customCommand: "install --production"
-      workingDir: ./
+      customCommand: "install --only=production"
   - task: Npm@1
     displayName: Ng Build Production
     inputs:
       command: custom
       customCommand: "run ng build --prod"
-      workingDir: ./
   - task: Npm@1
     displayName: Ng Build Production
     inputs:
       command: custom
       customCommand: "run ng build --prod"
-      workingDir: ./
   - task: ArchiveFiles@2
     displayName: Package Artifacts
     inputs:
-      rootFolderOrFile: ./dist
+      rootFolderOrFile: dist
   - task: PublishBuildArtifacts@1
     displayName: Publish Artifacts
     inputs:
