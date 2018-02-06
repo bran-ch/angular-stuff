@@ -2,6 +2,11 @@ phases:
 - phase: PreBuild
   steps:
   - task: Npm@1
+    displayName: Npm Install
+    inputs:
+      command: install
+      workingDir: ./
+  - task: Npm@1
     displayName: Ng Lint
     inputs:
       command: custom
