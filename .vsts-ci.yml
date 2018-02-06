@@ -10,7 +10,6 @@ phases:
     inputs:
       command: custom
       customCommand: run ng lint
-      workingDir: ./
 - phase: Build
   dependsOn: PreBuild
   steps:
