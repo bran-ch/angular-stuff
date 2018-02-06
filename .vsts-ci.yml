@@ -1,0 +1,39 @@
+phase:
+- phase: Pre Build
+  steps:
+  - task: Npm@1
+    displayName: Ng Lint
+    inputs:
+      command: custom
+      customCommand: run ng lint
+- phase: Build
+  dependsOn: Pre Build
+  steps:
+  - task: Npm@1
+    displayName: Npm Install Production
+    inputs:
+      command: custom
+      customCommand: "install --production"
+      workingDir: ./
+  - task: Npm@1
+    displayName: Ng Build Production
+    inputs:
+      command: custom
+      customCommand: "run ng build --prod"
+      workingDir: ./
+  - task: Npm@1
+    displayName: Ng Build Production
+    inputs:
+      command: custom
+      customCommand: "run ng build --prod"
+      workingDir: ./
+  - task: ArchiveFiles@2
+    displayName: Package Artifacts
+    inputs:
+      rootFolderOrFile: ./dist
+  - task: PublishBuildArtifacts@2
+    displayName: Publish Artifacts
+    inputs:
+      rootFolderOrFile: $(System.DefaultWorkingDirectory)/dist
+      artifactName: drop
+      artifactType: "Visual Studio Team Services/TFS"
