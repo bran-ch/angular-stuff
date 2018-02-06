@@ -5,7 +5,6 @@ phases:
     displayName: Npm Install
     inputs:
       command: install
-      workingDir: ./
   - task: Npm@1
     displayName: Ng Lint
     inputs:
@@ -16,20 +15,9 @@ phases:
   dependsOn: PreBuild
   steps:
   - task: Npm@1
-    displayName: Npm Install Angular Cli
+    displayName: Npm Install
     inputs:
-      command: custom
-      customCommand: "install -g @angular/cli"
-  - task: Npm@1
-    displayName: Npm Install Production
-    inputs:
-      command: custom
-      customCommand: "install --only=production"
-  - task: Npm@1
-    displayName: Ng Build Production
-    inputs:
-      command: custom
-      customCommand: "run ng build --prod"
+      command: install
   - task: Npm@1
     displayName: Ng Build Production
     inputs:
