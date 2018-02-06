@@ -19,7 +19,7 @@ phases:
     displayName: Npm Install Angular Cli
     inputs:
       command: custom
-      customCommand: "install -g angular/cli"
+      customCommand: "install -g @angular/cli"
   - task: Npm@1
     displayName: Npm Install Production
     inputs:
