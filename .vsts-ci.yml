@@ -31,6 +31,6 @@ phases:
   - task: PublishBuildArtifacts@1
     displayName: Publish Artifacts
     inputs:
-      pathToPublish: "$(Build.ArtifactStagingDirectory)/dist"
+      pathToPublish: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
       artifactName: drop
       artifactType: "Visual Studio Team Services/TFS"
