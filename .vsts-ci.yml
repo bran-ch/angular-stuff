@@ -31,7 +31,7 @@ phases:
     displayName: Package Artifacts
     inputs:
       rootFolderOrFile: ./dist
-  - task: PublishBuildArtifacts@2
+  - task: PublishBuildArtifacts@1
     displayName: Publish Artifacts
     inputs:
       rootFolderOrFile: $(System.DefaultWorkingDirectory)/dist
