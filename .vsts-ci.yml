@@ -1,5 +1,5 @@
 phases:
-- phase: Pre Build
+- phase: PreBuild
   steps:
   - task: Npm@1
     displayName: Ng Lint
@@ -7,7 +7,7 @@ phases:
       command: custom
       customCommand: run ng lint
 - phase: Build
-  dependsOn: Pre Build
+  dependsOn: PreBuild
   steps:
   - task: Npm@1
     displayName: Npm Install Production
