@@ -1,4 +1,4 @@
-phase:
+phases:
 - phase: Pre Build
   steps:
   - task: Npm@1
